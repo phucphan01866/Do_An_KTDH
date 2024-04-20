@@ -12,7 +12,7 @@ class Application:
         root.configure(padx=20, pady=20)
         root.attributes('-topmost', True)
         root.geometry(f"{self.screen_width}x{self.screen_height}")
-        
+        self.create_grid_pixel()
 
     def create_grid_pixel(self):
         grid_pixel = Frame(self.root, height= self.pixel_grid_height, width=self.pixel_grid_width)
@@ -41,11 +41,17 @@ class Application:
             
         # X axis
         canvas.create_line(0, canvas_height/2, canvas_width, canvas_height/2)
-        
+        for x in range(0, canvas_width, 50):
+            canvas.create_rectangle(x-1, canvas_height/2-1, x+1, canvas_height/2+1, fill='red')
+            canvas.create_text(x, canvas_height/2+8, text=str(int((x- self.canvas_width/2)/5)), font=('Arial', 7))
+
         
         # Y axis
         canvas.create_line(canvas_width/2, 0, canvas_width/2, canvas_height, fill="black")
-        
+        for y in range(0, canvas_height, 50):
+            canvas.create_rectangle(canvas_width/2-1, y-1 ,canvas_width/2+1,y+1,  fill='red')
+            canvas.create_text(canvas_width/2+9,y, text=str(int(-(y-self.canvas_height/2)/5)), font=('Arial', 7))
+
 
     def put_pixel(self, x, y, color="green"):
         adjusted_x = self.canvas_width/2 + x*5
