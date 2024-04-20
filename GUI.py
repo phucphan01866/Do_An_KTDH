@@ -31,17 +31,19 @@ class Application:
 
         goc_toa_do=(canvas_width/2, canvas_height/2)
 
-
+        #draw grid
         grid_size=5
         for x in range(0,canvas_width, grid_size):
             canvas.create_line(x, 0, x, canvas_height, fill="#EADBC8")
-
         for y in range(0,canvas_height, grid_size):
             canvas.create_line(0, y, canvas_width, y, fill="#EADBC8")
-        # TRỤC X
+            
+            
+        # X axis
         canvas.create_line(0, canvas_height/2, canvas_width, canvas_height/2)
-
-        # TRỤC Y
+        
+        
+        # Y axis
         canvas.create_line(canvas_width/2, 0, canvas_width/2, canvas_height, fill="black")
         
 
@@ -127,11 +129,20 @@ class Application:
         x2 = x1 + base
         y2 = y1
         x3 = x1 + base / 2
-        y3 = y1 - height
+        y3 = y1 + height
 
         # Vẽ các cạnh của tam giác
         self.draw_line(x1, y1, x2, y2)  # Cạnh đáy
         self.draw_line(x1, y1, x3, y3)  # Cạnh bên
         self.draw_line(x2, y2, x3, y3)  # Cạnh bên
         
-    def 
+    def draw_right_triangle(self, x1, y1, base, height):
+        x2 = x1 + base
+        y2 = y1
+        x3 = x1
+        y3 = y1 + height
+
+        # Vẽ các cạnh của tam giác
+        self.draw_line( x1, y1, x2, y2)  # Cạnh đáy
+        self.draw_line(x2, y2, x3, y3)  # Cạnh kề
+        self.draw_line(x3, y3, x1, y1)  # Cạnh huyền

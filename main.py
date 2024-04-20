@@ -12,7 +12,7 @@ def main():
     App.draw_rectangle(5,10,20,20)
     #App.draw_triangle(1,1,5,20,20,4)
     App.draw_isosceles_triangle(2,2,30,50)
-    
+    App.draw_right_triangle(100,100,30,50)
     
     root.mainloop()
 if __name__ == "__main__":
