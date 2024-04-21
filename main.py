@@ -1,18 +1,20 @@
 from tkinter import *
 import GUI 
+import Graphics2D
+
 
 def main():
-
-    root=Tk()
-    App=GUI.Application(root)
-    App.put_pixel(-1, 10)
-    App.draw_line(-10, -10, 50, -80)
-    App.draw_circle(10,10,20)
-    App.draw_rectangle(5,10,20,20)
-    #App.draw_triangle(1,1,5,20,20,4)
-    App.draw_isosceles_triangle(2,2,30,50)
-    App.draw_right_triangle(5,5,30,50)
     
+    root=Tk()
+    
+    
+    g2D=Graphics2D.Graphics2D(root)
+    g2D.draw_line(-10, -10, 50, -80)
+    g2D.put_pixel(-1, 10)
+    g2D.draw_line(-10, -10, 50, -80)
+    g2D.draw_circle(10,10,20)
+    g2D.draw_rectangle(5,10,20,20)
+    g2D.draw_isosceles_triangle(2,2,30,50)
     root.mainloop()
 if __name__ == "__main__":
     main()
